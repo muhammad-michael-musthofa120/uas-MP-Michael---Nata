@@ -67,6 +67,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '838254014456',
     projectId: 'nata-michael',
     storageBucket: 'nata-michael.appspot.com',
+    androidClientId: '838254014456-uum7h0je6p5fjdvojpmrniget1allej5.apps.googleusercontent.com',
     iosClientId: '838254014456-5nbl49bbkue5v6c6agp5emb9ajj902kg.apps.googleusercontent.com',
     iosBundleId: 'com.example.uasKlpMichaelNata',
   );
@@ -77,6 +78,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '838254014456',
     projectId: 'nata-michael',
     storageBucket: 'nata-michael.appspot.com',
+    androidClientId: '838254014456-uum7h0je6p5fjdvojpmrniget1allej5.apps.googleusercontent.com',
     iosClientId: '838254014456-5nbl49bbkue5v6c6agp5emb9ajj902kg.apps.googleusercontent.com',
     iosBundleId: 'com.example.uasKlpMichaelNata',
   );
