@@ -10,21 +10,24 @@ class AuthController extends GetxController {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   FirebaseAuth auth = FirebaseAuth.instance;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  //read data
+  List menu = [];
+  final CollectionReference collectionRef =
+      FirebaseFirestore.instance.collection("user");
 
   UserCredential? _userCredential;
   //serach data m
   late TextEditingController searchFriendsController,
       titleController,
-      descriptionController,
-      dueDateController;
+      namaMenuController,
+      keterangan_tController;
 
   @override
   void onInit() {
     super.onInit();
     searchFriendsController = TextEditingController();
-    titleController = TextEditingController();
-    descriptionController = TextEditingController();
-    dueDateController = TextEditingController();
+    namaMenuController = TextEditingController();
+    keterangan_tController = TextEditingController();
   }
   
 
@@ -38,10 +41,28 @@ class AuthController extends GetxController {
     super.onClose();
     searchFriendsController.dispose();
     titleController.dispose();
-    descriptionController.dispose();
-    dueDateController.dispose();
+    namaMenuController.dispose();
+    keterangan_tController.dispose();
    
   }
+
+  //read data
+
+  Future getData() async {
+    try {
+      //to get data from a single/particular document alone.
+      var temp = await collectionRef.doc("menu").get();
+
+      // to get data from all documents sequentially
+      
+
+      return temp;
+    } catch (e) {
+      debugPrint("Error - $e");
+      return e;
+    }
+  }
+
 
   Future signInWithGoogle() async {
     // Trigger the authentication flow
@@ -199,11 +220,10 @@ class AuthController extends GetxController {
     return hasil;
   }
 
-  void saveUpdateTask(String? title, String? description, String? duDate,
+  void saveUpdateTask(String? nama_menu, String? keterangan_t,
       String? docId, String? type) async {
-    print(title);
-    print(description);
-    print(duDate);
+    print(nama_menu);
+    print(keterangan_t);
     print(docId);
     print(type);
 
@@ -214,21 +234,19 @@ class AuthController extends GetxController {
     formKey.currentState!.save();
     CollectionReference taskColl = firestore.collection('task');
     CollectionReference userColl = firestore.collection('users');
-    var taskId = DateTime.now().toIso8601String();
+    var menuId = DateTime.now().toIso8601String();
     if (type == 'Add') {
-      await taskColl.doc(taskId).set({
-        'title': title,
-        'description': description,
-        'due_date': duDate,
+      await taskColl.doc(menuId).set({
+        'nama_menu': nama_menu,
+        'keterangan_t': keterangan_t, 
         'status': '0',
-        'total_task': '0',
-        'total_task_finished': '0',
+       
         'task_detail': [],
         'asign_to': [auth.currentUser!.email],
         'created_by': auth.currentUser!.email,
       }).whenComplete(() async {
         await userColl.doc(auth.currentUser!.email).set({
-          'task_id': FieldValue.arrayUnion([taskId])
+          'task_id': FieldValue.arrayUnion([menuId])
         }, SetOptions(merge: true));
         Get.back();
         Get.snackbar('Task', 'successfuly $type');
@@ -237,9 +255,9 @@ class AuthController extends GetxController {
       });
     } else {
       await taskColl.doc(docId).update({
-        'title': title,
-        'description': description,
-        'due_date': duDate,
+        'nama_menu': nama_menu,
+      
+      
       }).whenComplete(() async {
         // await userColl.doc(auth.currentUser!.email).set({
         //   'task_id': FieldValue.arrayUnion([taskId])

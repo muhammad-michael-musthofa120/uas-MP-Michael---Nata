@@ -18,7 +18,7 @@ final authCont = Get.find<AuthController>();
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 120,
+                height: 160,
               ),
               Center(
                 child: Text(
@@ -54,48 +54,7 @@ final authCont = Get.find<AuthController>();
                 height: 10,
               ),
               
-              Row(
-                children: [
-                  Text(
-                    'New to this app?',
-                    style: subTitle,
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                       
-                    },
-                    child: Text(
-                      'Sign Up',
-                      style: textButton.copyWith(
-                        decoration: TextDecoration.underline,
-                        decorationThickness: 1,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              // LogInForm(),
-              SizedBox(
-                height: 20,
-              ),
-              GestureDetector(
-                onTap: () {},
-                child: Text(
-                  'Forgot password?',
-                  style: TextStyle(
-                    color: kZambeziColor,
-                    fontSize: 14,
-                    decoration: TextDecoration.underline,
-                    decorationThickness: 1,
-                  ),
-                ),
-              ),
+          
              
              
              

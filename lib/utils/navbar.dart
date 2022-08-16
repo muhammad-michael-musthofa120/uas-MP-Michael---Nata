@@ -32,18 +32,31 @@ class Navbar extends StatelessWidget {
           ListTile(
               leading: Icon(Icons.book),
               title: Text("Menu"),
-              onTap: (){},
+              onTap: () => Get.toNamed(Routes.MENU)),
                     
-                  ),
-          ListTile(
-            leading: Icon(Icons.info_outline),
-            title: Text("Pesananmu"),
-            onTap: () => null,
-          ),
+                  
+          // ListTile(
+          //   leading: Icon(Icons.info_outline),
+          //   title: Text("Pesananmu"),
+          //   onTap: () => null,
+          // ),
           ListTile(
             leading: Icon(Icons.exit_to_app),
-            title: Text("Kembali"),
-             onTap: () => authCon.logout(),
+            title: Text("Logout"),
+            //  onTap: () => authCon.logout(),
+            onTap: () {
+                Get.defaultDialog(
+                  title: 'Log Out',
+                  content: const Text('Apakah yakin akan keluar?'),
+                  cancel: ElevatedButton(
+                    onPressed: () => Get.back(),
+                    child: const Text('Batal'),
+                  ),
+                  confirm: ElevatedButton(
+                      onPressed: () => Get.toNamed(Routes.LOGIN),
+                      child: const Text('Ya')),
+                );
+              },
           )
         ],
       ),
