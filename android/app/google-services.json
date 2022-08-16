@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "838254014456",
+    "project_id": "nata-michael",
+    "storage_bucket": "nata-michael.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:838254014456:android:7134d73c91aadf8d0a300d",
+        "android_client_info": {
+          "package_name": "com.example.uas_klp_michael_nata"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "838254014456-ntt7lu7ju4lmdrt8ja99cs5s1rum5nm7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGjJMolPvCLAm5_oKNQhK4AMN_jhIQfIM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "838254014456-ntt7lu7ju4lmdrt8ja99cs5s1rum5nm7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "838254014456-5nbl49bbkue5v6c6agp5emb9ajj902kg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.uasKlpMichaelNata"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
