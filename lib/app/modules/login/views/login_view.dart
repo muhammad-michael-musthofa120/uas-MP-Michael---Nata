@@ -20,13 +20,40 @@ final authCont = Get.find<AuthController>();
               SizedBox(
                 height: 120,
               ),
-              Text(
-                'Welcome Back',
-                style: titleText,
+              Center(
+                child: Text(
+                  'Welcome Back in Food Deliver',
+                  style: titleText,
+                ),
               ),
+              Image.asset("assets/images/logologin.png", height: 400,),
+             
               SizedBox(
-                height: 5,
+                height: 20,
               ),
+              Container(
+                alignment: Alignment.center,
+                height: MediaQuery.of(context).size.height * 0.08,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    color: kPrimaryColor),
+                child: GestureDetector(
+                  child: Text(
+                    "Sign Up with Google ",
+                    style: textButton.copyWith(color: kWhiteColor),
+                
+                  ),
+                   onTap: (){
+                        authCont.signInWithGoogle();
+                      },
+                ),
+           
+              ),
+               SizedBox(
+                height: 10,
+              ),
+              
               Row(
                 children: [
                   Text(
@@ -38,7 +65,7 @@ final authCont = Get.find<AuthController>();
                   ),
                   GestureDetector(
                     onTap: () {
-                       authCont.signInWithGoogle();
+                       
                     },
                     child: Text(
                       'Sign Up',
@@ -69,31 +96,11 @@ final authCont = Get.find<AuthController>();
                   ),
                 ),
               ),
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                alignment: Alignment.center,
-                height: MediaQuery.of(context).size.height * 0.08,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    color: kPrimaryColor),
-                child: Text(
-                  "Login",
-                  style: textButton.copyWith(color: kWhiteColor),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                'Or log in with:',
-                style: subTitle.copyWith(color: kBlackColor),
-              ),
-              SizedBox(
-                height: 20,
-              ),
+             
+             
+             
+                   
+             
               // LoginOption(),
             ],
           ),

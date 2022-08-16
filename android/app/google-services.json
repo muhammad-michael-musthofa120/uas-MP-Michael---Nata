@@ -15,6 +15,7 @@
       "oauth_client": [
         {
           "client_id": "838254014456-uum7h0je6p5fjdvojpmrniget1allej5.apps.googleusercontent.com",
+          
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.uas_klp_michael_nata",
